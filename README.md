@@ -46,8 +46,8 @@ Dataset used: [ImageNet](http://www.image-net.org/)
 
 # Environmental Requirements
 
-- Hardware（Ascend or GPU）
-    - Use Ascend or GPU to build the hardware environment.
+- Hardware（GPU）
+    - Use GPU to build the hardware environment.
 - Framework
     - [MindSpore](https://www.mindspore.cn/install)
 - For more information, see the following resources:
@@ -137,11 +137,7 @@ in particular, before training, you need to install `requirements.txt` by follow
 
 ```bash
 # Training example
-# Ascend
-# Standalone training
-bash scripts/run_standalone_train.sh [DATASET_PATH] [TRAIN_OUTPUT_PATH] [CHECKPOINT_PATH](optional) [BEGIN_EPOCH](optional) [EVAL_DATASET_PATH](optional)
-# Distribute training
-bash scripts/run_distribute_train.sh [RANK_TABLE_FILE] [DATASET_PATH] [TRAIN_OUTPUT_PATH] [CHECKPOINT_PATH](optional) [BEGIN_EPOCH](optional) [EVAL_DATASET_PATH](optional)
+
 # GPU
 # Standalone training
 bash scripts/run_standalone_train_gpu.sh [DATASET_PATH] [TRAIN_OUTPUT_PATH]
@@ -173,8 +169,7 @@ epoch: [ 4/120], epoch time: 825988.881, steps: 10009, per step time: 82.525, av
 
 ```bash
 # Evaluation example
-# Ascend
-bash scripts/run_eval.sh [DATASET_PATH] [CHECKPOINT_PATH]
+
 # GPU
 bash scripts/run_eval_gpu.sh [DATASET_PATH] [CHECKPOINT_PATH]
 ```
@@ -207,32 +202,32 @@ python export.py --checkpoint_path [CHECKPOINT_PATH] --file_name [FILE_NAME] --f
 
 ## Training Performance
 
-| Parameter                | Ascend                    | GPU                                                  |
-|--------------------------| --------------------------| -----------------------------------------------------|
-| Model                    | HRNet                     | HRNet                                                |
-| Model version            | W48-cls                   | W48-cls                                              |
-| Operating environment    | HUAWEI CLOUD Modelarts    | Nvidia RTX 3090, Intel Xeon Gold 6226R CPU @ 2.90GHz |
-| Upload date              | 2021-11-21                | 2022-05-31                                           |
-| Dataset                  | imagenet                  | imagenet                                             |
-| Training parameters      | src/config.py             | src/config.py                                        |
-| Optimizer                | RMSProp                   | RMSProp                                              |
-| Loss function            | CrossEntropySmooth        | CrossEntropySmooth                                   |
-| Training duration (8p)   | 28.7h                     | 55.8h                                                |
-| Parameter quantity (M)   | 296M                      | 296M                                                 |
-| Script                   | [链接](https://gitee.com/mindspore/models/tree/master/research/cv/HRNetW48_cls) | [链接](https://gitee.com/mindspore/models/tree/master/research/cv/HRNetW48_cls) |
+| Parameter                | GPU                                                  |
+|--------------------------| -----------------------------------------------------|
+| Model                    | HRNet                                                |
+| Model version            |  W48-cls                                              |
+| Operating environment    |  Nvidia RTX 3090, Intel Xeon Gold 6226R CPU @ 2.90GHz |
+| Upload date              | 2022-05-31                                           |
+| Dataset                  |  imagenet                                             |
+| Training parameters      |  src/config.py                                        |
+| Optimizer                |  RMSProp                                              |
+| Loss function            |  CrossEntropySmooth                                   |
+| Training duration (8p)   | 55.8h                                                |
+| Parameter quantity (M)   |  296M                                                 |
+| Script                   |  [链接](https://gitee.com/mindspore/models/tree/master/research/cv/HRNetW48_cls) |
 
 ## Inference Performance
 
-| Parameter                | Ascend                    | GPU                                                  |
-|--------------------------| --------------------------| -----------------------------------------------------|
-| Model                    | HRNet                     | HRNet                                                |
-| Model version            | W48-cls                   | W48-cls                                              |
-| Operating environment    | HUAWEI CLOUD Modelarts    | Nvidia RTX 3090, Intel Xeon Gold 6226R CPU @ 2.90GHz |
-| Upload date              | 2021-11-21                | 2022-05-31                                           |
-| Dataset                  | imagenet (val 50k images) | imagenet (val 50k images)                            |
-| Inference parameters     | batch_size=16             | batch_size=64                                        |
-| Inference duration       | 5min                      | 5min                                                 |
-| Metric (8p)              | Top1[79.4%]               | Top1[79.3%]                                          |
+| Parameter                |  GPU                                                  |
+|--------------------------|  -----------------------------------------------------|
+| Model                    |  HRNet                                                |
+| Model version            |  W48-cls                                              |
+| Operating environment    |  Nvidia RTX 3090, Intel Xeon Gold 6226R CPU @ 2.90GHz |
+| Upload date              |  2022-05-31                                           |
+| Dataset                  |  imagenet (val 50k images)                            |
+| Inference parameters     |  batch_size=64                                        |
+| Inference duration       | 5min                                                 |
+| Metric (8p)              |  Top1[79.3%]                                          |
 
 # Description of Random Cases
 
